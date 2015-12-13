@@ -182,6 +182,18 @@ d = pd.DataFrame(data=OrderedDict([('id', x_test_labels), ('cuisine', svc_predic
 d.to_csv('submission_svc_1.csv', index=False)
 
 
+#------SVM------#
+
+param_grid = [{'C': [0.1, 1, 10], 'kernel': ['linear']},{'C': [0.1, 1, 10], 'gamma': [0.001, 0.01, 0.1, 1], 'kernel': ['rbf']},]
+svm_kern = svm.SVC()
+clf = grid_search.GridSearchCV(svm_kern, param_grid)
+clf.fit(x_train_tfidf, y_train)
+svm_predictions= clf.predict(x_test_tfidf)
+
+d = pd.DataFrame(data=OrderedDict([('id', x_test_labels), ('cuisine', svm_predictions)]))
+d.to_csv('submission_svm_2.csv', index=False)
+
+
 #------xgboost------#
 
 sz = x_train_tfidf.shape
