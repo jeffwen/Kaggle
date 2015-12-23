@@ -1,4 +1,4 @@
-![What's Cooking Logo](/images/whats_cooking_logo.png)
+![What's Cooking Logo](/Whats Cooking/Images/whats_cooking_logo.png)
 
 #What's Cooking?
 ----
